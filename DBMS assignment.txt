@@ -1,0 +1,255 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> Show databases;
++--------------------+
+| Database           |
++--------------------+
+| cbe                |
+| huye1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| ruhande            |
+| sys                |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use ruhande;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_ruhande |
++-------------------+
+| ngoma             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into ngoma values;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select * from ngoma;
++------+------------+-----------+--------+------------+----------+---------+------------+----------------------+-----------+
+| Id   | First_Name | Last_Name | Gender | Province   | District | Sector  | Cell       | e_mail               | Tel_No    |
++------+------------+-----------+--------+------------+----------+---------+------------+----------------------+-----------+
+|    1 | SIFA       | Bajou     | Female | Kigali_Cit | Kicukiro | Gikondo | Kagunga    | sifabajou@gmail.com  | 790994783 |
+|    2 | MUGABO     | Henry     | Male   | Southern   | Huye     | Ngoma   | Tumba      | henrymugabo@gmail.co | 788837389 |
+|    3 | KUNDWA     | Dulce     | Female | Northern   | Musanze  | Musanze | Cyabagarur | dulcekundwa@gmail.co | 788884536 |
+|    4 | HIRWA      | Ornella   | Female | Western    | Rubavu   | Gisenyi | Kivu       | ornellahirwa12@gmail | 785643210 |
+|    5 | NGABO      | Dennis    | Male   | Kigali     | Gasabo   | Masaka  | Kabuga_vil | ngabodennis4@gmail.c | 734567894 |
++------+------------+-----------+--------+------------+----------+---------+------------+----------------------+-----------+
+5 rows in set (0.01 sec)
+
+mysql> insert into Ngoma values(6,'MUHOZA','Iggy','Southern','Kamonyi','Gacurabwenge','bishenyi','iggymuhoza@gmail.com',788393736);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into Ngoma values(6,'MUHOZA','Iggy','Female','Southern','Kamonyi','Gacurabwenge','bishenyi','iggymuhoza@gmail.com',788393736);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into Ngoma values(7,'RUKUNDO','Fred','Male','Eastern','Gatsibo','Kiramuruzi','Gakoni','fredrukundo@gmail.com',787543436);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into Ngoma values(8,'ARNOLD','Mugabe','Male','Eastern','Rwamagana','rwamagana','kabuye','armugb@gmail.com',784355676);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Ngoma values(9,'LIZA','Kessy','Female','Kigali','Rwamagana','rwamagana','kabuye','armugb@gmail.com',784355676);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>
+mysql> insert into Ngoma values(10,'GWIZA','Abby','Female','Kigali','Nyarugenge','Muhima','Nyabugogo','abbygwiza87@gmail.com',784211236);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select * from Ngoma;
++------+------------+-----------+--------+------------+------------+------------+------------+----------------------+-----------+
+| Id   | First_Name | Last_Name | Gender | Province   | District   | Sector     | Cell       | e_mail               | Tel_No    |
++------+------------+-----------+--------+------------+------------+------------+------------+----------------------+-----------+
+|    1 | SIFA       | Bajou     | Female | Kigali_Cit | Kicukiro   | Gikondo    | Kagunga    | sifabajou@gmail.com  | 790994783 |
+|    2 | MUGABO     | Henry     | Male   | Southern   | Huye       | Ngoma      | Tumba      | henrymugabo@gmail.co | 788837389 |
+|    3 | KUNDWA     | Dulce     | Female | Northern   | Musanze    | Musanze    | Cyabagarur | dulcekundwa@gmail.co | 788884536 |
+|    4 | HIRWA      | Ornella   | Female | Western    | Rubavu     | Gisenyi    | Kivu       | ornellahirwa12@gmail | 785643210 |
+|    5 | NGABO      | Dennis    | Male   | Kigali     | Gasabo     | Masaka     | Kabuga_vil | ngabodennis4@gmail.c | 734567894 |
+|    6 | MUHOZA     | Iggy      | Female | Southern   | Kamonyi    | Gacurabwen | bishenyi   | iggymuhoza@gmail.com | 788393736 |
+|    7 | RUKUNDO    | Fred      | Male   | Eastern    | Gatsibo    | Kiramuruzi | Gakoni     | fredrukundo@gmail.co | 787543436 |
+|    8 | ARNOLD     | Mugabe    | Male   | Eastern    | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|    9 | LIZA       | Kessy     | Female | Kigali     | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|   10 | GWIZA      | Abby      | Female | Kigali     | Nyarugenge | Muhima     | Nyabugogo  | abbygwiza87@gmail.co | 784211236 |
++------+------------+-----------+--------+------------+------------+------------+------------+----------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> alter table Ngoma into Dob Int(20) before Province;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'into Dob Int(20) before Province' at line 1
+mysql> alter table Ngoma add Dob Int(20) before Province;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'before Province' at line 1
+mysql> alter table Ngoma add Dob Int(20) 'before Province';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''before Province'' at line 1
+mysql> alterv table Ngoma add Dob int after Gender;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'alterv table Ngoma add Dob int after Gender' at line 1
+mysql> alter table Ngoma add Dob int after Gender;
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select* from Ngoma;
++------+------------+-----------+--------+------+------------+------------+------------+------------+----------------------+-----------+
+| Id   | First_Name | Last_Name | Gender | Dob  | Province   | District   | Sector     | Cell       | e_mail               | Tel_No    |
++------+------------+-----------+--------+------+------------+------------+------------+------------+----------------------+-----------+
+|    1 | SIFA       | Bajou     | Female | NULL | Kigali_Cit | Kicukiro   | Gikondo    | Kagunga    | sifabajou@gmail.com  | 790994783 |
+|    2 | MUGABO     | Henry     | Male   | NULL | Southern   | Huye       | Ngoma      | Tumba      | henrymugabo@gmail.co | 788837389 |
+|    3 | KUNDWA     | Dulce     | Female | NULL | Northern   | Musanze    | Musanze    | Cyabagarur | dulcekundwa@gmail.co | 788884536 |
+|    4 | HIRWA      | Ornella   | Female | NULL | Western    | Rubavu     | Gisenyi    | Kivu       | ornellahirwa12@gmail | 785643210 |
+|    5 | NGABO      | Dennis    | Male   | NULL | Kigali     | Gasabo     | Masaka     | Kabuga_vil | ngabodennis4@gmail.c | 734567894 |
+|    6 | MUHOZA     | Iggy      | Female | NULL | Southern   | Kamonyi    | Gacurabwen | bishenyi   | iggymuhoza@gmail.com | 788393736 |
+|    7 | RUKUNDO    | Fred      | Male   | NULL | Eastern    | Gatsibo    | Kiramuruzi | Gakoni     | fredrukundo@gmail.co | 787543436 |
+|    8 | ARNOLD     | Mugabe    | Male   | NULL | Eastern    | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|    9 | LIZA       | Kessy     | Female | NULL | Kigali     | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|   10 | GWIZA      | Abby      | Female | NULL | Kigali     | Nyarugenge | Muhima     | Nyabugogo  | abbygwiza87@gmail.co | 784211236 |
++------+------------+-----------+--------+------+------------+------------+------------+------------+----------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql>mysql> ^C
+mysql> Select First_Name,Last_Name,Gender,Tel_No from Ngoma;
++------------+-----------+--------+-----------+
+| First_Name | Last_Name | Gender | Tel_No    |
++------------+-----------+--------+-----------+
+| SIFA       | Bajou     | Female | 790994783 |
+| MUGABO     | Henry     | Male   | 788837389 |
+| KUNDWA     | Dulce     | Female | 788884536 |
+| HIRWA      | Ornella   | Female | 785643210 |
+| NGABO      | Dennis    | Male   | 734567894 |
+| MUHOZA     | Iggy      | Female | 788393736 |
+| RUKUNDO    | Fred      | Male   | 787543436 |
+| ARNOLD     | Mugabe    | Male   | 784355676 |
+| LIZA       | Kessy     | Female | 784355676 |
+| GWIZA      | Abby      | Female | 784211236 |
++------------+-----------+--------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> alter table Ngoma add Dob int after Gender;
+ERROR 1060 (42S21): Duplicate column name 'Dob'
+mysql> alter table Ngoma add Age int after Gender;
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select* from Ngoma;
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+| Id   | First_Name | Last_Name | Gender | Age  | Dob  | Province   | District   | Sector     | Cell       | e_mail               | Tel_No    |
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+|    1 | SIFA       | Bajou     | Female | NULL | NULL | Kigali_Cit | Kicukiro   | Gikondo    | Kagunga    | sifabajou@gmail.com  | 790994783 |
+|    2 | MUGABO     | Henry     | Male   | NULL | NULL | Southern   | Huye       | Ngoma      | Tumba      | henrymugabo@gmail.co | 788837389 |
+|    3 | KUNDWA     | Dulce     | Female | NULL | NULL | Northern   | Musanze    | Musanze    | Cyabagarur | dulcekundwa@gmail.co | 788884536 |
+|    4 | HIRWA      | Ornella   | Female | NULL | NULL | Western    | Rubavu     | Gisenyi    | Kivu       | ornellahirwa12@gmail | 785643210 |
+|    5 | NGABO      | Dennis    | Male   | NULL | NULL | Kigali     | Gasabo     | Masaka     | Kabuga_vil | ngabodennis4@gmail.c | 734567894 |
+|    6 | MUHOZA     | Iggy      | Female | NULL | NULL | Southern   | Kamonyi    | Gacurabwen | bishenyi   | iggymuhoza@gmail.com | 788393736 |
+|    7 | RUKUNDO    | Fred      | Male   | NULL | NULL | Eastern    | Gatsibo    | Kiramuruzi | Gakoni     | fredrukundo@gmail.co | 787543436 |
+|    8 | ARNOLD     | Mugabe    | Male   | NULL | NULL | Eastern    | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|    9 | LIZA       | Kessy     | Female | NULL | NULL | Kigali     | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|   10 | GWIZA      | Abby      | Female | NULL | NULL | Kigali     | Nyarugenge | Muhima     | Nyabugogo  | abbygwiza87@gmail.co | 784211236 |
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> update Ngoma set Age='18' Where Id='1';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='15' Where Id='10';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='20' Where Id='2';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='13' Where Id='9';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='21' Where Id='3';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='18' Where Id='8';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='19' Where Id='4';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='21' Where Id='7';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='22' Where Id='5';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Ngoma set Age='19' Where Id='6';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Ngoma;
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+| Id   | First_Name | Last_Name | Gender | Age  | Dob  | Province   | District   | Sector     | Cell       | e_mail               | Tel_No    |
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+|    1 | SIFA       | Bajou     | Female |   18 | NULL | Kigali_Cit | Kicukiro   | Gikondo    | Kagunga    | sifabajou@gmail.com  | 790994783 |
+|    2 | MUGABO     | Henry     | Male   |   20 | NULL | Southern   | Huye       | Ngoma      | Tumba      | henrymugabo@gmail.co | 788837389 |
+|    3 | KUNDWA     | Dulce     | Female |   21 | NULL | Northern   | Musanze    | Musanze    | Cyabagarur | dulcekundwa@gmail.co | 788884536 |
+|    4 | HIRWA      | Ornella   | Female |   19 | NULL | Western    | Rubavu     | Gisenyi    | Kivu       | ornellahirwa12@gmail | 785643210 |
+|    5 | NGABO      | Dennis    | Male   |   22 | NULL | Kigali     | Gasabo     | Masaka     | Kabuga_vil | ngabodennis4@gmail.c | 734567894 |
+|    6 | MUHOZA     | Iggy      | Female |   19 | NULL | Southern   | Kamonyi    | Gacurabwen | bishenyi   | iggymuhoza@gmail.com | 788393736 |
+|    7 | RUKUNDO    | Fred      | Male   |   21 | NULL | Eastern    | Gatsibo    | Kiramuruzi | Gakoni     | fredrukundo@gmail.co | 787543436 |
+|    8 | ARNOLD     | Mugabe    | Male   |   18 | NULL | Eastern    | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|    9 | LIZA       | Kessy     | Female |   13 | NULL | Kigali     | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|   10 | GWIZA      | Abby      | Female |   15 | NULL | Kigali     | Nyarugenge | Muhima     | Nyabugogo  | abbygwiza87@gmail.co | 784211236 |
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+10 rows in set (0.00 sec)
+mysql> Select* from Ngoma where Gender='Female' OR Province='Kigali';
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+| Id   | First_Name | Last_Name | Gender | Age  | Dob  | Province   | District   | Sector     | Cell       | e_mail               | Tel_No    |
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+|    1 | SIFA       | Bajou     | Female |   18 | NULL | Kigali_Cit | Kicukiro   | Gikondo    | Kagunga    | sifabajou@gmail.com  | 790994783 |
+|    3 | KUNDWA     | Dulce     | Female |   21 | NULL | Northern   | Musanze    | Musanze    | Cyabagarur | dulcekundwa@gmail.co | 788884536 |
+|    4 | HIRWA      | Ornella   | Female |   19 | NULL | Western    | Rubavu     | Gisenyi    | Kivu       | ornellahirwa12@gmail | 785643210 |
+|    5 | NGABO      | Dennis    | Male   |   22 | NULL | Kigali     | Gasabo     | Masaka     | Kabuga_vil | ngabodennis4@gmail.c | 734567894 |
+|    6 | MUHOZA     | Iggy      | Female |   19 | NULL | Southern   | Kamonyi    | Gacurabwen | bishenyi   | iggymuhoza@gmail.com | 788393736 |
+|    9 | LIZA       | Kessy     | Female |   13 | NULL | Kigali     | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|   10 | GWIZA      | Abby      | Female |   15 | NULL | Kigali     | Nyarugenge | Muhima     | Nyabugogo  | abbygwiza87@gmail.co | 784211236 |
++------+------------+-----------+--------+------+------+------------+------------+------------+------------+----------------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> Select* from Ngoma where Gender='Female' AND Province='Kigali';
++------+------------+-----------+--------+------+------+----------+------------+-----------+-----------+----------------------+-----------+
+| Id   | First_Name | Last_Name | Gender | Age  | Dob  | Province | District   | Sector    | Cell      | e_mail               | Tel_No    |
++------+------------+-----------+--------+------+------+----------+------------+-----------+-----------+----------------------+-----------+
+|    9 | LIZA       | Kessy     | Female |   13 | NULL | Kigali   | Rwamagana  | rwamagana | kabuye    | armugb@gmail.com     | 784355676 |
+|   10 | GWIZA      | Abby      | Female |   15 | NULL | Kigali   | Nyarugenge | Muhima    | Nyabugogo | abbygwiza87@gmail.co | 784211236 |
++------+------------+-----------+--------+------+------+----------+------------+-----------+-----------+----------------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> Alter table Ngoma drop Dob;
+Query OK, 10 rows affected (0.03 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> Select* from Ngoma;
++------+------------+-----------+--------+------+------------+------------+------------+------------+----------------------+-----------+
+| Id   | First_Name | Last_Name | Gender | Age  | Province   | District   | Sector     | Cell       | e_mail               | Tel_No    |
++------+------------+-----------+--------+------+------------+------------+------------+------------+----------------------+-----------+
+|    1 | SIFA       | Bajou     | Female |   18 | Kigali_Cit | Kicukiro   | Gikondo    | Kagunga    | sifabajou@gmail.com  | 790994783 |
+|    2 | MUGABO     | Henry     | Male   |   20 | Southern   | Huye       | Ngoma      | Tumba      | henrymugabo@gmail.co | 788837389 |
+|    3 | KUNDWA     | Dulce     | Female |   21 | Northern   | Musanze    | Musanze    | Cyabagarur | dulcekundwa@gmail.co | 788884536 |
+|    4 | HIRWA      | Ornella   | Female |   19 | Western    | Rubavu     | Gisenyi    | Kivu       | ornellahirwa12@gmail | 785643210 |
+|    5 | NGABO      | Dennis    | Male   |   22 | Kigali     | Gasabo     | Masaka     | Kabuga_vil | ngabodennis4@gmail.c | 734567894 |
+|    6 | MUHOZA     | Iggy      | Female |   19 | Southern   | Kamonyi    | Gacurabwen | bishenyi   | iggymuhoza@gmail.com | 788393736 |
+|    7 | RUKUNDO    | Fred      | Male   |   21 | Eastern    | Gatsibo    | Kiramuruzi | Gakoni     | fredrukundo@gmail.co | 787543436 |
+|    8 | ARNOLD     | Mugabe    | Male   |   18 | Eastern    | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|    9 | LIZA       | Kessy     | Female |   13 | Kigali     | Rwamagana  | rwamagana  | kabuye     | armugb@gmail.com     | 784355676 |
+|   10 | GWIZA      | Abby      | Female |   15 | Kigali     | Nyarugenge | Muhima     | Nyabugogo  | abbygwiza87@gmail.co | 784211236 |
++------+------------+-----------+--------+------+------------+------------+------------+------------+----------------------+-----------+
+10 rows in set (0.00 sec)
